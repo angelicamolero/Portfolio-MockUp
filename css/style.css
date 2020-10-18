@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-font: 'Source Sans Pro', sans-serif;
+    --main-font-color: #fff;
+}
+
+html {
+    font-family: var(--body-font);
+    font-size: 16px;
+    color: var(--main-font-color);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url('../img/background-2.jpg') center no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+body::before{
+    content: "";
+    width: 100%;
+    height: inherit;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 3;
+    padding: 3rem 2rem;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+    animation: appear;
+    animation-duration: .6s;
+}
+
+.logo-circle {
+    width: 5.5rem;
+    height: 5.5rem;
+    line-height: 5.5rem;
+    border: 1px solid #fff;
+    border-radius: 100%;
+}
+
+.logo {
+    width: 5rem;
+    padding: 10px;
+    position: relative;
+    top: 15px;
+}
+
+.logo:hover{
+  animation: grow;
+  animation-duration: .5s;
+}
+
+.content::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: calc(8.5rem - 1px);
+    width: 1px;
+    height: calc(3.5rem + 1px);
+    background: #fff;
+}
+
+.content {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    max-width: 100%;
+    margin-top: 3.5rem;
+}
+
+.inner-content {
+    transition: max-height .50s ease,padding .50s ease,opacity .25s ease-in-out;
+    transition-delay: .2s;
+    padding: 3rem 2rem;
+    max-height: 40rem;
+    overflow: hidden;
+}
+
+.inner-content h1 {
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.inner-content p {
+    text-transform: uppercase;
+    font-family: var(--main-font);
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+nav::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: calc(22.5rem - 1px);
+    width: 1px;
+    height: calc(3.5rem + 1px);
+    background: #fff;
+}
+
+nav {
+    margin-top: 3.5rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+
+nav ul li {
+    border-left: 1px solid #fff;
+}
+
+nav ul li:first-child {
+    border-left:0;
+}
+
+nav ul button {
+    display: block;
+    min-width: 7.5rem;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    padding: 0 1.25rem 0 1.45rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-size: .8rem;
+    font-family: Source Sans Pro,sans-serif;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    transition: filter 300ms;
+    
+}
+
+nav ul button:hover,
+nav ul button:focus{
+    background-color: hsla(0,0%,100%,.075);
+    filter: brightness(1.4);
+}
+
+.main {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0px;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        animation-name: appear;
+        animation-duration: .5s;
+}
+
+.main .main-item {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        position: relative;
+        width: 40rem;
+        padding: 2.5rem 2.5rem 1.5rem;
+        background-color: rgba(27,31,34,.85);
+}
+
+.main .main-item .close {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main .main-item .close:hover,
+.main .main-item .close:focus{
+    border-radius: 100%;
+    display: flex;
+    top: .5rem;
+    right: .4rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0,0%,100%,.075);
+    cursor: pointer;
+}
+
+.headline {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+
+ .active {
+    display: block !important;
+}
+
+.timeout {
+    display: none;
+}
+
+.main-active {
+    display: block;
+}
+
+article h1 {
+    text-align: left;
+    text-transform: uppercase;
+    font-family: var(--main-font);
+    letter-spacing: .8rem;
+    font-size: 2rem;
+    border-bottom:  2px solid #fff;
+    padding-bottom: .5rem;
+
+}
+
+.article-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-content img {
+    width: 400px;
+}
+
+.content-text p {
+    padding-top: 20px;
+    font-family: var(--main-font);
+    letter-spacing: 2px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 25px;
+}
+
+.service {
+    align-items: stretch!important;
+    flex-direction: column;
+    max-width: 200px;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+form {
+    margin: 0 0 2.5rem;
+}
+
+.field{
+    margin: 0 0 1.5rem;
+}
+
+.half {
+    width: 50%;
+    float: left;
+    padding: 0 0 0 .75rem;
+}
+
+.first {
+    padding: 0 .75rem 0 0;
+}
+
+.field label {
+    color: #fff;
+    display: block;
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+}
+
+.field input, textarea {
+    background: transparent;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1rem;
+    text-decoration: none;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.field textarea {
+    height: 8rem;
+}
+
+form .actions {
+    margin: 1.875rem 0 0!important;
+}
+
+form ul {
+    cursor: pointer;
+    list-style: none;
+    padding-left: 0;
+}
+
+.actions li {
+    display: inline-block;
+    padding: 0 1rem 0 0;
+    vertical-align: middle;
+}
+
+.actions input {
+    background-color: transparent;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: inset 0 0 0 1px #fff;
+    color: #fff!important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 300;
+    height: 2.75rem;
+    letter-spacing: .2rem;
+    line-height: 2.75rem;
+    outline: 0;
+    padding: 0 1.25rem 0 1.35rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.actions .send-btn {
+    background-color: #fff;
+    color: #1b1f22!important;
+    font-weight: 600;
+}
+
+.actions input[type=reset]:hover {
+    background-color: hsla(0,0%,100%,.075);
+}
+
+ul .icons {
+    padding-left: 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+.icons li {
+    display: inline-block;
+    padding: 0 .75em 0 0;
+}
+
+.icons li a {
+    border-radius: 100%;
+    box-shadow: inset 0 0 0 1px #fff;
+    display: inline-block;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    width: 2.25rem;
+    color: #fff;
+}
+
+.icons li a:hover {
+    background-color: hsla(0,0%,100%,.075); 
+}
+
+.icon-box {
+    padding: 70px 14px;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -60px;
+}
+
+.icon-box h4 {
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+.icon-box p {
+    font-family: var(--main-font);
+    letter-spacing: 2px;
+    font-size: .8rem;
+}
+
+.icon {
+    width: 70px;
+    border-radius: .6rem;
+    display: block;
+    height: 70px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.icon .svg-inline--fa  {
+    font-size: 60px;
+    color:#fff;
+    position: absolute;
+    top: 5px;
+    left: 12px;
+}
+
+
+
+
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 0.85;}
+}
+
+@keyframes grow {
+    0% { width: 5rem;}
+    70% { width: 5.6rem;}
+    100%  {width: 5rem;}
+} 
